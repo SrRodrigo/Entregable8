@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # ajusta esta rama si estás usando una rama diferente
+      - main  
 
 jobs:
   deploy:
@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x'  # ajusta a la versión que estés usando
+        dotnet-version: '6.0.x'  
 
     - name: Publish to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
