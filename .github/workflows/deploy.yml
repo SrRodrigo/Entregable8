@@ -22,4 +22,4 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./bin/Release/net5.0/publish/wwwroot  # ajusta la ruta de tu directorio de publicación
+        publish_dir: ./wwwroot  # ajusta la ruta de tu directorio de publicación
