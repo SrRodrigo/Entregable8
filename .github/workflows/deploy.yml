@@ -23,4 +23,4 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./wwwroot  # ajusta la ruta de tu directorio de publicación
-        branch: gh-pages
+        publish_branch: gh-pages  # especifica la rama de publicación
