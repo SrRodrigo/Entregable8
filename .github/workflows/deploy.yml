@@ -21,6 +21,6 @@ jobs:
     - name: Publish to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GH_TOKEN }}
         publish_dir: ./wwwroot  # ajusta la ruta de tu directorio de publicación
         publish_branch: gh-pages  # especifica la rama de publicación
