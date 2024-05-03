@@ -4,23 +4,30 @@ on:
   push:
     branches:
       - master  
-
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout
       uses: actions/checkout@v2
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '6.0.x'  
+        dotnet-version: '8.0.204'
 
-    - name: Publish to GitHub Pages
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build --no-restore
+
+    - name: Publish
+      run: dotnet publish --no-restore --configuration Release --output publish
+
+    - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GH_TOKEN }}
-        publish_dir: ./wwwroot  # ajusta la ruta de tu directorio de publicación
-        publish_branch: gh-pages  # especifica la rama de publicación
+        publish_dir: ./publish/wwwroot
